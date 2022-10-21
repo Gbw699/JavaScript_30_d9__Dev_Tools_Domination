@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Console Tricks!</title>
+  </head>
+  <body>
+    <p onClick="makeGreen()">×BREAK×DOWN×</p>
+
+    <script>
+      const dogs = [
+        { name: "Snickers", age: 2 },
+        { name: "hugo", age: 8 },
+      ];
+      const p = document.querySelector("p");
+
+      function makeGreen() {
+        p.style.color = "#BADA55";
+        p.style.fontSize = "50px";
+      }
+
+      // Regular
+      console.log("Hola");
+
+      // Interpolated
+      console.log("Hola %s", "desarrollador desconocido");
+
+      let str = "desarrollador desconocido";
+      console.log(`Hola ${str}`);
+
+      // Styled
+      console.log("Hoa %cnuevo visitante", "color:red; font-size: 18pt");
+
+      // warning!
+      console.warn("Esto es un exceso");
+
+      // Error :|
+      console.error("He detectado un error");
+
+      // Info
+      console.info("Estoy por rendir el henry challenge");
+
+      // Testing
+      console.assert(p.innerText === "", " Ingresar un texto en el elemento p");
+      console.assert(
+        p.innerText === "×BREAK×DOWN×",
+        " Ingresar un texto en el elemento p"
+      );
+
+      // Viewing DOM Elements
+      console.log(p);
+      console.dir(p);
+
+      // Grouping together
+      dogs.forEach((value) => {
+        console.groupCollapsed(value.name);
+        console.log(`Este perro se llama ${value.name}`);
+        console.log(`${value.name} tiene ${value.age} años de edad perruna`);
+        console.log(`${value.age * 7} años de edad humana`);
+        console.groupEnd(value.name);
+      });
+
+      // counting
+      console.count("Hola");
+      console.count("Hola");
+      console.count("Chau");
+      console.count("Hola");
+      console.count("Chau");
+      console.count("Hola");
+
+      // timing
+      console.time("fetching data");
+      fetch("https://api.github.com/users/wesbos")
+        .then((data) => data.json())
+        .then((data) => {
+          console.timeEnd("fetching data");
+          console.log(data);
+        });
+
+      // clearing
+      // console.clear()
+    </script>
+  </body>
+</html>
