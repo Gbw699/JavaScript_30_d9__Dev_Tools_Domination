@@ -1,0 +1,1 @@
+Proyecto para utilizar métodos del object console, del curso JavaScript 30 days challenge, día 9.
